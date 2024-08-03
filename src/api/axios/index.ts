@@ -1,10 +1,10 @@
 import axios from "axios";
-import { Product } from "../../services/products/types";
-import { checkIfImageExists } from "../../utils/imageExists";
-import bottle from "../../assets/bottle.webp";
-import { getRandomNumber } from "../../utils/getRandomNumber";
-import { currencyFormatter } from "../../utils/currencyFormatter";
-import { getProductStyle } from "../../utils/getProductStyle";
+import { Product } from "@/services/products/types";
+import { checkIfImageExists } from "@/utils/imageExists";
+import bottle from "@/assets/bottle.webp";
+import { getRandomNumber } from "@/utils/getRandomNumber";
+import { currencyFormatter } from "@/utils/currencyFormatter";
+import { getProductStyle } from "@/utils/getProductStyle";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,

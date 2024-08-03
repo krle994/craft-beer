@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useGetProductById } from "./api/useGetProductById";
-import { Header } from "../../components/Header";
-import { Product } from "../../services/products/types";
+import { Header } from "@/components/Header";
+import { Product } from "@/services/products/types";
 
 export function ProductDetails() {
   const { id } = useParams<{ id: string }>();
