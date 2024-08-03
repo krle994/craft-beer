@@ -3,16 +3,13 @@ export const checkIfImageExists = (url: string) => {
 
   const img = new Image();
   img.src = url;
-  
+
   if (img.complete) {
     return true;
   } else {
     img.onload = () => {
       return true;
     };
-    
-    img.onerror = () => {
-      return false;
-    };
+    return false;
   }
-}
+};

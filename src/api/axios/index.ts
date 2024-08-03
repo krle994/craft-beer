@@ -1,7 +1,5 @@
 import axios from "axios";
 import { Product } from "@/services/products/types";
-import { checkIfImageExists } from "@/utils/imageExists";
-import bottle from "@/assets/bottle.webp";
 import { getRandomNumber } from "@/utils/getRandomNumber";
 import { currencyFormatter } from "@/utils/currencyFormatter";
 import { getProductStyle } from "@/utils/getProductStyle";
@@ -16,7 +14,6 @@ const setMockedValues = (item: Product) => {
   return {
     ...item,
     abv: getRandomNumber(3, 9),
-    image: checkIfImageExists(image) ? image : bottle,
     price: isNaN(+price) ? price : currencyFormatter(price),
     style: getProductStyle(name),
     description:

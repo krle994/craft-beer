@@ -1,16 +1,15 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Home } from "@/pages/Home";
+import { createBrowserRouter } from 'react-router-dom';
+import { Home } from '@/pages/Home';
+import { ROUTES } from '@/constants/routes';
+import { ProductDetails } from '@/pages/ProductDetails';
 
 export const browserRouter = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES.HOME,
     element: <Home />,
   },
   {
-    path: "/products/:id",
-    async lazy() {
-      let { ProductDetails } = await import("../../pages/ProductDetails");
-      return { Component: ProductDetails };
-    },
+    path: ROUTES.PRODUCT_DETAILS,
+    element: <ProductDetails />,
   },
 ]);
