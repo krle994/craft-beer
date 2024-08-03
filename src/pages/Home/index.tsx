@@ -5,7 +5,7 @@ export function Home() {
   const { data, isLoading, isError, error } = useGetProducts();
 
   return (
-    <div className="bg-black h-full w-screen text-white flex items-center justify-center flex-col">
+    <div className="h-full w-screen text-white flex items-center justify-center flex-col">
       <Header />
       <main className="flex flex-col pb-10 max-w-[90%] w-full">
         <h1>OUR BEERS</h1>
@@ -21,7 +21,7 @@ export function Home() {
                 <img
                   className="max-h-[350px] h-full w-36 object-contain"
                   src={image}
-                  alt=""
+                  alt={name}
                 />
               </div>
               <span className="flex justify-start">{name}</span>

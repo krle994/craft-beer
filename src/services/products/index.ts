@@ -12,7 +12,7 @@ export async function getProducts() {
 }
 
 export async function getProductById(id: string) {
-  const { data } = await axios.get<Product[]>(
+  const { data } = await axios.get<Product>(
     generatePath(PRODUCT_BY_ID_ENDPOINT, { id })
   );
 
