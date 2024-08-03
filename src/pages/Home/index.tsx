@@ -3,12 +3,10 @@ import { useGetProducts } from '@/api/products/useGetProducts';
 import { generatePath, Link } from 'react-router-dom';
 import { ROUTES } from '@/constants/routes';
 import { checkIfImageExists } from '@/utils/imageExists';
-import bottle from '@/assets/bottle.webp';
+import bottle from '@/assets/images/bottle.webp';
 
 export function Home() {
   const { data, isLoading, isError, error } = useGetProducts();
-
-  console.log(data);
 
   if (isLoading) {
     return null;

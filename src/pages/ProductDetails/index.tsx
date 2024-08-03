@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 import { Product } from '@/services/products/types';
 import { ROUTES } from '@/constants/routes';
 import { checkIfImageExists } from '@/utils/imageExists';
-import bottle from '@/assets/bottle.webp';
+import bottle from '@/assets/images/bottle.webp';
 
 export function ProductDetails() {
   const { id } = useParams<{ id: string }>();

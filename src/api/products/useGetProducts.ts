@@ -10,5 +10,6 @@ export function useGetProducts() {
     queryKey: ['products', pathname],
     queryFn: getProducts,
     refetchOnMount: true,
+    refetchOnWindowFocus: true,
   });
 }
