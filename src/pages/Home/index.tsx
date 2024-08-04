@@ -17,7 +17,7 @@ export function Home() {
 
         <div className="grid w-full grid-cols-auto-3 gap-4 max-w-7xl">
           {data?.map((item) => (
-            <ProductListItem product={item} />
+            <ProductListItem product={item} key={item.id} />
           ))}
         </div>
       </div>

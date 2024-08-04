@@ -4,6 +4,8 @@ import {
   AgBarSeriesOptions,
   AgChartOptions,
   AgLineSeriesOptions,
+  AgCategoryAxisOptions,
+  AgNumberAxisOptions,
 } from 'ag-charts-community';
 import { useSalesStore } from '@/store/salesStore';
 
@@ -17,6 +19,23 @@ export const SalesChart = () => {
         yKey: 'price',
       } as AgBarSeriesOptions,
       { type: 'line', xKey: 'name', yKey: 'average' } as AgLineSeriesOptions,
+    ],
+    axes: [
+      {
+        type: 'category',
+        position: 'bottom',
+      } as AgCategoryAxisOptions,
+      {
+        type: 'number',
+        position: 'left',
+        keys: ['price'],
+      } as AgNumberAxisOptions,
+      // Use right axis for 'avgTemp' series
+      {
+        type: 'number',
+        position: 'right',
+        keys: ['average'],
+      } as AgNumberAxisOptions,
     ],
   });
 
