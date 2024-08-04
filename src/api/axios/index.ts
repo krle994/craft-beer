@@ -14,7 +14,8 @@ const setMockedValues = (item: Product) => {
   return {
     ...item,
     abv: getRandomNumber(3, 9),
-    price: isNaN(+price) ? price : currencyFormatter(price),
+    price:  parseFloat(String(price || 0).match(/[\d\.]+/) as unknown as string),
+    formattedPrice: isNaN(+price) ? price : currencyFormatter(price),
     style: getProductStyle(name),
     description:
       "A MODERN TAKE ON A TRADITIONAL BEER. THIS IRISH STOUT BRINGS FORWARD NOTES OF DARK CHOCOLATE WITH HINTS OF COFFEE AND DARK FRUIT. TAKE A JOURNEY INTO THE DARK SIDE OF MALT.",

@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useGetProductById } from "@/api/products/useGetProductById";
+import { Button } from "@headlessui/react";
+
 import { Header } from "@/components/Header";
+import { useGetProductById } from "@/api/products/useGetProductById";
 import { Product } from "@/services/products/types";
+
 import { checkIfImageExists } from "@/utils/imageExists";
+
 import bottle from "@/assets/images/bottle.webp";
-import { Button } from "@/components/Button";
 
 export function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -19,7 +22,7 @@ export function ProductDetails() {
 
   if (isLoading) return null;
 
-  const { image, name, price, description, abv, style } = data as Product;
+  const { image, name,formattedPrice, description, abv, style } = data as Product;
 
   return (
     <div className="h-full w-screen text-white flex items-center justify-center flex-col font-bebas">
@@ -48,7 +51,7 @@ export function ProductDetails() {
             <p className="text-3xl">{style}</p>
           </div>
           <div className="h-1 bg-white my-5" />
-          <p className="text-3xl">{price}</p>
+          <p className="text-3xl">{formattedPrice}</p>
 
           <Button
             onClick={() => {}}

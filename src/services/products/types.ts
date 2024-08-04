@@ -1,5 +1,6 @@
 export interface Product {
   price: number;
+  formattedPrice?: string;
   name: string;
   rating: {
     average: number;

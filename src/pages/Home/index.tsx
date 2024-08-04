@@ -17,8 +17,8 @@ export function Home() {
         <h1 className="text-6xl w-full py-10 text-center">OUR BEERS</h1>
 
         <div className="grid w-full grid-cols-auto-3 gap-4 max-w-7xl">
-          {data?.map(({ price, image, id, name }) => (
-            <ProductListItem price={price} id={id} image={image} name={name} />
+          {data?.map((item) => (
+            <ProductListItem product={item} />
           ))}
         </div>
       </div>

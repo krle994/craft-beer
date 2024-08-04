@@ -1,11 +1,13 @@
-import { TbShoppingCart } from "react-icons/tb";
+import { Button } from "@headlessui/react";
+import { Link, useLocation } from "react-router-dom";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+
+import { useAuthStore } from "@/store/authStore";
+
+import { ROUTES } from "@/constants/routes";
 
 import logo from "@/assets/images/cbeLogo.svg";
-import { Button } from "../Button";
-import { useAuthStore } from "@/store/authStore";
-import { Link, useLocation } from "react-router-dom";
-import { ROUTES } from "@/constants/routes";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { CartModal } from "../CartModal";
 
 export const Header = () => {
   const { isAuthenticated, login, logout } = useAuthStore();
@@ -22,8 +24,6 @@ export const Header = () => {
     }
   };
 
-  console.log(isAuthenticated);
-
   return (
     <header className="flex items-center justify-between w-11/12 m-auto min-h-32">
       {isHomePage ? (
@@ -37,16 +37,14 @@ export const Header = () => {
       )}
       <div className="flex gap-6 justify-center items-center">
         {isAuthenticated && (
-          <Link to={ROUTES.MANAGE} className="text-2xl">
-            Manage
+          <Link to={ROUTES.DASHBOARD} className="text-2xl">
+            Dashboard
           </Link>
         )}
         <Button className="text-2xl" onClick={handleAuthClick}>
           {authLabel}
         </Button>
-        <Button>
-          <TbShoppingCart className="text-3xl" />
-        </Button>
+        <CartModal />
       </div>
     </header>
   );
