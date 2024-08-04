@@ -1,26 +1,18 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { AuthState } from "./types";
+import { AuthState } from "./types";
 
+export const useAuthStore = create<AuthState>((set) => ({
+  isAuthenticated: false,
+  login: () => {
+    set(() => ({
+      isAuthenticated: true,
+    }));
+  },
 
-
-export const useCartStore = create<AuthState>()(
-  persist(
-    set => ({
+  logout: () => {
+    set(() => ({
       isAuthenticated: false,
-     
-      login: () => {
-        set(() => ({
-          isAuthenticated: true
-        }));
-      },
-
-      logout: () => {
-        set(() => ({
-          isAuthenticated: false
-        }));
-      },
-    }),
-    { name: "auth" }
-  )
-);
+    }));
+  },
+}));

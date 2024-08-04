@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 const setMockedValues = (item: Product) => {
-  const { name, image, price } = item;
+  const { name, price } = item;
 
   return {
     ...item,
@@ -17,7 +17,7 @@ const setMockedValues = (item: Product) => {
     price: isNaN(+price) ? price : currencyFormatter(price),
     style: getProductStyle(name),
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non aliquet enim, sed hendrerit justo. Aenean venenatis eget nisi id posuere. Curabitur id metus in nisl efficitur sodales. Morbi non magna id lectus tempus feugiat. Donec interdum molestie pulvinar. Morbi venenatis tellus vel ipsum semper pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat nisl quis velit euismod bibendum. Sed sit amet ex sed mi auctor viverra. Morbi vestibulum viverra quam nec pulvinar. Vivamus fermentum arcu vel mi condimentum, sit amet viverra turpis condimentum. Ut vitae turpis a augue mattis tincidunt facilisis in tortor. Vestibulum urna libero, lobortis sed nisi sed, sodales sagittis quam. Vestibulum tempus ex vel erat pulvinar euismod.",
+      "A MODERN TAKE ON A TRADITIONAL BEER. THIS IRISH STOUT BRINGS FORWARD NOTES OF DARK CHOCOLATE WITH HINTS OF COFFEE AND DARK FRUIT. TAKE A JOURNEY INTO THE DARK SIDE OF MALT.",
   };
 };
 

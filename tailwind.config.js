@@ -6,6 +6,9 @@ export default {
       gridTemplateColumns: {
         "auto-3": "repeat(auto-fit, minmax(320px, 1fr))",
       },
+      fontFamily: {
+        bebas: ['"Bebas Neue"'],
+      }
     },
   },
   plugins: [],
