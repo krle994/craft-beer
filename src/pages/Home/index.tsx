@@ -1,7 +1,7 @@
-import { Header } from "@/components/Header";
-import { ProductListItem } from "@/components/ProductListItem";
+import { ProductListItem } from '@/components/ProductListItem';
 
-import { useGetProducts } from "@/api/products/useGetProducts";
+import { useGetProducts } from '@/api/products/useGetProducts';
+import { MainLayout } from '@/layouts/MainLayout';
 
 export function Home() {
   const { data, isLoading } = useGetProducts();
@@ -11,8 +11,7 @@ export function Home() {
   }
 
   return (
-    <main className="h-full w-screen text-white flex items-center justify-center flex-col font-bebas">
-      <Header />
+    <MainLayout>
       <div className="flex flex-col pb-10 max-w-[90%] w-full">
         <h1 className="text-6xl w-full py-10 text-center">OUR BEERS</h1>
 
@@ -22,6 +21,6 @@ export function Home() {
           ))}
         </div>
       </div>
-    </main>
+    </MainLayout>
   );
 }

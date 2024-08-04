@@ -1,26 +1,29 @@
-import { Button } from "@headlessui/react";
-import { Link, useLocation } from "react-router-dom";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { Button } from '@headlessui/react';
+import { Link, useLocation } from 'react-router-dom';
+import { IoArrowBackCircleOutline } from 'react-icons/io5';
 
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from '@/store/authStore';
 
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from '@/constants/routes';
 
-import logo from "@/assets/images/cbeLogo.svg";
-import { CartModal } from "../CartModal";
+import logo from '@/assets/images/cbeLogo.svg';
+import { CartModal } from '../CartModal';
+import toast from 'react-hot-toast';
 
 export const Header = () => {
   const { isAuthenticated, login, logout } = useAuthStore();
   const { pathname } = useLocation();
 
-  const authLabel = isAuthenticated ? "Logout" : "Login";
+  const authLabel = isAuthenticated ? 'Logout' : 'Login';
   const isHomePage = pathname === ROUTES.HOME;
 
   const handleAuthClick = () => {
     if (isAuthenticated) {
-      return logout();
+      logout();
+      toast.success('Logout successful!');
     } else {
       login();
+      toast.success('Login successful!');
     }
   };
 

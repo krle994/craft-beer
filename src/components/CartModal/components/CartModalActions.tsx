@@ -1,6 +1,7 @@
 import { useCartStore } from '@/store/cartStore';
 import { useSalesStore } from '@/store/salesStore';
 import { Button, useClose } from '@headlessui/react';
+import toast from 'react-hot-toast';
 
 export const CartModalActions = () => {
   const { items: cartItems, resetCart } = useCartStore();
@@ -10,12 +11,14 @@ export const CartModalActions = () => {
 
   const handleClearCart = () => {
     resetCart();
+    toast.success('Cart cleared successfully');
   };
 
   const handleBuyItems = () => {
     addSalesItems(cartItems);
     resetCart();
     closeCartModal();
+    toast.success('Products bought successfully!');
   };
 
   return (

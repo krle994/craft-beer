@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { SalesState } from './types';
 import { CartItem } from '@/store/cartStore/types';
 
@@ -29,12 +30,17 @@ export const handleAddSalesItems = (
   }));
 };
 
-export const useSalesStore = create<SalesState>((set) => ({
-  items: [],
+export const useSalesStore = create<SalesState>()(
+  persist(
+    (set) => ({
+      items: [],
 
-  addSalesItems: (salesItems: CartItem[]) => {
-    set((state: SalesState) => {
-      return { items: handleAddSalesItems(state, salesItems) };
-    });
-  },
-}));
+      addSalesItems: (salesItems: CartItem[]) => {
+        set((state: SalesState) => {
+          return { items: handleAddSalesItems(state, salesItems) };
+        });
+      },
+    }),
+    { name: 'sales' }
+  )
+);

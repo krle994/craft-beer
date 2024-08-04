@@ -3,7 +3,7 @@ import { ROUTES } from "@/constants/routes";
 import { checkIfImageExists } from "@/utils/imageExists";
 import bottle from "@/assets/images/bottle.webp";
 import { useMemo } from "react";
-import { AddToCartButton } from "./components/AddToCartButton";
+import { AddToCartButton } from "@/components/AddToCartButton";
 import { Product } from "@/services/products/types";
 
 export const ProductListItem = ({product}: {product: Product}) => {

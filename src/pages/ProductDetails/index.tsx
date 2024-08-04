@@ -1,13 +1,14 @@
-import { useParams } from "react-router-dom";
-import { Button } from "@headlessui/react";
+import { useParams } from 'react-router-dom';
 
-import { Header } from "@/components/Header";
-import { useGetProductById } from "@/api/products/useGetProductById";
-import { Product } from "@/services/products/types";
+import { AddToCartButton } from '@/components/AddToCartButton';
 
-import { checkIfImageExists } from "@/utils/imageExists";
+import { useGetProductById } from '@/api/products/useGetProductById';
+import { Product } from '@/services/products/types';
 
-import bottle from "@/assets/images/bottle.webp";
+import { checkIfImageExists } from '@/utils/imageExists';
+
+import bottle from '@/assets/images/bottle.webp';
+import { MainLayout } from '@/layouts/MainLayout';
 
 export function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -22,12 +23,11 @@ export function ProductDetails() {
 
   if (isLoading) return null;
 
-  const { image, name,formattedPrice, description, abv, style } = data as Product;
+  const { image, name, formattedPrice, description, abv, style } =
+    data as Product;
 
   return (
-    <div className="h-full w-screen text-white flex items-center justify-center flex-col font-bebas">
-      <Header />
-
+    <MainLayout>
       <main className="flex gap-8 pb-10 max-w-[90%] w-full">
         <div className="flex-[3] flex justify-center items-center">
           <img
@@ -53,14 +53,9 @@ export function ProductDetails() {
           <div className="h-1 bg-white my-5" />
           <p className="text-3xl">{formattedPrice}</p>
 
-          <Button
-            onClick={() => {}}
-            className="text-2xl bg-white text-black w-full p-2 mt-8"
-          >
-            Add to cart
-          </Button>
+          <AddToCartButton cartItem={data as Product} classNames="mt-8 py-2" />
         </div>
       </main>
-    </div>
+    </MainLayout>
   );
 }

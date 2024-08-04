@@ -1,6 +1,6 @@
 import { Product } from "@/services/products/types";
 
-export type CartItem = Omit<Product, "rating" | "description" | "abv" | "style"> & {
+export type CartItem = Omit<Product, "description" | "abv" | "style"> & {
   quantity: number;
 };
 

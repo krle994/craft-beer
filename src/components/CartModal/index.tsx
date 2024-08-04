@@ -17,7 +17,7 @@ export const CartModal = () => {
     }
 
     return cartItems.map(
-      ({ image, price, formattedPrice, name, quantity, id }) => (
+      ({ image, price, formattedPrice, name, quantity, id, rating }) => (
         <CartListItem
           key={id}
           image={image}
@@ -26,6 +26,7 @@ export const CartModal = () => {
           name={name}
           quantity={quantity}
           id={id}
+          rating={rating}
         />
       )
     );
