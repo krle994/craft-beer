@@ -1,21 +1,24 @@
-import { generatePath, Link } from "react-router-dom";
-import { ROUTES } from "@/constants/routes";
-import { checkIfImageExists } from "@/utils/imageExists";
-import bottle from "@/assets/images/bottle.webp";
-import { useMemo } from "react";
-import { AddToCartButton } from "@/components/AddToCartButton";
-import { Product } from "@/services/products/types";
+import { generatePath, Link } from 'react-router-dom';
+import { ROUTES } from '@/constants/routes';
+import { checkIfImageExists } from '@/utils/imageExists';
+import bottle from '@/assets/images/bottle.webp';
+import { useMemo } from 'react';
+import { AddToCartButton } from '@/components/AddToCartButton';
+import { Product } from '@/services/products/types';
+import { LoadingScreen } from '../LoadingScreen';
 
-export const ProductListItem = ({product}: {product: Product}) => {
-  const {
-  image,
-  id,
-  name,
-  formattedPrice
-} = product;
+export const ProductListItem = ({ product }: { product: Product }) => {
+  const { image, id, name, formattedPrice } = product;
+
+  const img = new Image();
+
+  if (!img.complete) {
+    return <LoadingScreen />;
+  }
+
   const productImage = useMemo(() => {
-    return checkIfImageExists(image) ? image : bottle
-  }, [image])
+    return checkIfImageExists(image) ? image : bottle;
+  }, [image]);
 
   return (
     <Link
@@ -24,7 +27,7 @@ export const ProductListItem = ({product}: {product: Product}) => {
       key={`${name}-${id}`}
     >
       <div className="flex justify-between items-center">
-        <AddToCartButton cartItem={product}  />
+        <AddToCartButton cartItem={product} />
         <span className="flex justify-end text-2xl">{formattedPrice}</span>
       </div>
       <div className="flex justify-center items-center flex-1">
@@ -37,4 +40,4 @@ export const ProductListItem = ({product}: {product: Product}) => {
       <span className="flex justify-start text-2xl pt-4">{name}</span>
     </Link>
   );
-}
+};

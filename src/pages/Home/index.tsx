@@ -2,12 +2,13 @@ import { ProductListItem } from '@/components/ProductListItem';
 
 import { useGetProducts } from '@/api/products/useGetProducts';
 import { MainLayout } from '@/layouts/MainLayout';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 export function Home() {
   const { data, isLoading } = useGetProducts();
 
   if (isLoading) {
-    return null;
+    return <LoadingScreen />;
   }
 
   return (
